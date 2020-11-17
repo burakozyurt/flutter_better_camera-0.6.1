@@ -213,11 +213,11 @@ public class Camera {
     // of these function calls.
     mediaRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
 	mediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
-	mediaRecorder.setOutputFormat(recordingProfile.fileFormat);
-    if (enableAudio) mediaRecorder.setAudioEncoder(recordingProfile.audioCodec);
-    mediaRecorder.setVideoEncoder(recordingProfile.videoCodec);
+	CamcorderProfile cpHigh = CamcorderProfile.get
+	(CamcorderProfile.QUALITY_HIGH);
+	mediaRecorder.setProfile(cpHigh);
 	mediaRecorder.setVideoEncodingBitRate(1000000);
-	mediaRecorder.setVideoSize(720, 1280);
+	mediaRecorder.setVideoSize(1280, 720);
 	mediaRecorder.setVideoFrameRate(15);
 	mediaRecorder.setOutputFile(outputFilePath);
 	mediaRecorder.setOrientationHint(getMediaOrientation());
