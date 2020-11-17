@@ -211,19 +211,16 @@ public class Camera {
 
     // There's a specific order that mediaRecorder expects. Do not change the order
     // of these function calls.
-    if (enableAudio) mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-    if (enableAudio) mediaRecorder.setAudioEncodingBitRate(recordingProfile.audioBitRate);
+    mediaRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
 	mediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
-    mediaRecorder.setOutputFormat(recordingProfile.fileFormat);
-    if (enableAudio) mediaRecorder.setAudioEncoder(recordingProfile.audioCodec);
-    mediaRecorder.setVideoEncoder(recordingProfile.videoCodec);
-    mediaRecorder.setVideoEncodingBitRate(recordingProfile.videoBitRate);
-    if (enableAudio) mediaRecorder.setAudioSamplingRate(recordingProfile.audioSampleRate);
-    mediaRecorder.setVideoFrameRate(recordingProfile.videoFrameRate);
-    mediaRecorder.setVideoSize(recordingProfile.videoFrameWidth, recordingProfile.videoFrameHeight);
-    mediaRecorder.setOutputFile(outputFilePath);
-    mediaRecorder.setOrientationHint(getMediaOrientation());
-
+	CamcorderProfile cpHigh = CamcorderProfile.get
+	(CamcorderProfile.QUALITY_HIGH);
+	mediaRecorder.setProfile(cpHigh);
+	mediaRecorder.setVideoEncodingBitRate(2000000);
+	mediaRecorder.setVideoSize(1280, 720);
+	mediaRecorder.setVideoFrameRate(24);
+	mediaRecorder.setOutputFile(outputFilePath);
+	mediaRecorder.setOrientationHint(getMediaOrientation());
     mediaRecorder.prepare();
   }
 
