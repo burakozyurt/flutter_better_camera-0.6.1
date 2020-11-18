@@ -211,7 +211,7 @@ public class Camera {
 
     // There's a specific order that mediaRecorder expects. Do not change the order
     // of these function calls.
-    if (enableAudio) mediaRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
+    mediaRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
     mediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
     mediaRecorder.setOutputFormat(recordingProfile.fileFormat);
     if (enableAudio) mediaRecorder.setAudioEncoder(recordingProfile.audioCodec);
