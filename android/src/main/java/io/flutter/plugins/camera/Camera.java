@@ -231,7 +231,7 @@ public class Camera {
 	(CamcorderProfile.QUALITY_HIGH);
 	mediaRecorder.setProfile(cpHigh);
 	mediaRecorder.setVideoEncodingBitRate(2000000);
-	mediaRecorder.setVideoSize(960, 544);
+	mediaRecorder.setVideoSize(1280, 720);
 	mediaRecorder.setVideoFrameRate(20);
 	mediaRecorder.setOutputFile(outputFilePath);
 	mediaRecorder.setOrientationHint(getMediaOrientation());
